@@ -45,7 +45,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- Révélation au scroll ---------- */
+  /* ---------- Révélation au scroll ----------
+     Important : le marquage des enfants de .reveal-stagger DOIT se faire avant
+     la sélection de .reveal ci-dessous — sinon ces enfants n'ont pas encore la
+     classe "reveal" au moment où l'observer les recherche, et restent bloqués
+     à opacity:0 pour toujours (jamais observés, jamais révélés). */
+  document.querySelectorAll('.reveal-stagger').forEach((group) => {
+    Array.from(group.children).forEach((child, i) => {
+      child.style.setProperty('--i', i);
+      child.classList.add('reveal');
+    });
+  });
+
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {
     const observer = new IntersectionObserver(
@@ -63,13 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     revealEls.forEach((el) => el.classList.add('in-view'));
   }
-
-  document.querySelectorAll('.reveal-stagger').forEach((group) => {
-    Array.from(group.children).forEach((child, i) => {
-      child.style.setProperty('--i', i);
-      child.classList.add('reveal');
-    });
-  });
 
   /* ---------- Validation de formulaires (inline, sans alert()) ---------- */
   function attachValidation(form) {

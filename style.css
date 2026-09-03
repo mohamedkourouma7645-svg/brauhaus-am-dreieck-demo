@@ -506,6 +506,11 @@ footer.site-footer { background: var(--ink-2); color: var(--paper-dim); padding:
 .cookie-banner a { color: var(--ember-bright); font-weight: 700; text-decoration: underline; }
 .cookie-accept-btn { padding: 10px 22px; min-height: 44px; flex-shrink: 0; }
 
+.signature-preview-grid { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: auto auto; gap: 20px; }
+.signature-preview-figure { grid-row: span 2; }
+
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 44px; align-items: center; }
+
 @media (max-width: 760px) {
   .split-grid { grid-template-columns: 1fr !important; }
   .feature-row { grid-template-columns: 1fr; }
@@ -513,4 +518,7 @@ footer.site-footer { background: var(--ink-2); color: var(--paper-dim); padding:
   form .field-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .signature-preview-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .signature-preview-figure { grid-row: auto; }
+  .hero-grid { grid-template-columns: 1fr; }
 }
