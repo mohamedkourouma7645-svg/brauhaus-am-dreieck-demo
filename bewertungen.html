@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bewertungen — Brauhaus Am Dreieck</title>
+<meta name="description" content="Was Gäste über das Brauhaus Am Dreieck sagen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<button type="button" class="order-badge" id="order-badge" hidden aria-haspopup="dialog">
+  <span class="order-badge-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+    <span class="order-badge-count" id="order-badge-count" hidden>0</span>
+  </span>
+  <span class="order-badge-text">
+    <span class="order-badge-label" id="order-badge-label">Ihre Bestellung</span>
+    <span class="order-badge-number" id="order-badge-number"></span>
+  </span>
+</button>
+
+<div class="cart-scrim" id="cart-scrim" hidden></div>
+<div class="cart-panel" id="cart-panel" hidden role="dialog" aria-modal="true" aria-labelledby="cart-panel-title">
+  <div class="cart-panel-handle"></div>
+  <div class="cart-panel-header">
+    <h2 id="cart-panel-title">Ihre Bestellung</h2>
+    <button type="button" class="cart-close" id="cart-close" aria-label="Schließen">&times;</button>
+  </div>
+  <div class="cart-panel-body">
+    <ul class="cart-items" id="cart-items"></ul>
+    <p class="cart-empty" id="cart-empty" hidden>Ihr Warenkorb ist noch leer &mdash; f&uuml;gen Sie Gerichte aus der Speisekarte hinzu.</p>
+    <div class="cart-confirm" id="cart-confirm" hidden></div>
+  </div>
+  <div class="cart-panel-footer" id="cart-footer">
+    <div class="cart-total"><span>Gesamt</span><strong id="cart-total-amount">0,00 &euro;</strong></div>
+    <button type="button" class="btn btn-solid cart-checkout" id="cart-checkout" disabled>Bestellung aufgeben</button>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg width="24" height="24" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandBadgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff6b45"/>
+            <stop offset="100%" stop-color="#b33517"/>
+          </linearGradient>
+          <path id="brandArcTop" d="M 12,54 A 38,38 0 1 1 88,54" fill="none"/>
+          <path id="brandArcBottom" d="M 12,50 A 38,38 0 1 0 88,50" fill="none"/>
+        </defs>
+        <circle cx="50" cy="50" r="46" fill="url(#brandBadgeGrad)" stroke="#0e9f5f" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#fbfaf7" stroke-width="1" opacity="0.5"/>
+        <text font-family="Sora, sans-serif" font-weight="800" font-size="8.4" letter-spacing="1.5" fill="#fbfaf7"><textPath href="#brandArcTop" startOffset="50%" text-anchor="middle">BRAUHAUS</textPath></text>
+        <text font-family="Sora, sans-serif" font-weight="800" font-size="7.6" letter-spacing="1.2" fill="#fbfaf7"><textPath href="#brandArcBottom" startOffset="50%" text-anchor="middle">AM DREIECK</textPath></text>
+        <text x="50" y="57" font-family="Sora, sans-serif" font-weight="800" font-size="22" fill="#fbfaf7" text-anchor="middle">BAD</text>
+      </svg>
+      Brauhaus <span class="brand-mark">Am Dreieck</span>
+    </a>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="speisekarte.html">Speisekarte</a></li>
+          <li><a href="bowling.html">Bowling</a></li>
+        <li><a href="bowling.html">Bowling</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="bewertungen.html" aria-current="page">Bewertungen</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <a class="nav-cta" href="reservierung.html">Tisch reservieren</a>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Menü öffnen">☰</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container-narrow" style="text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">4,7 von 5 · 9 Bewertungen (Beispieldaten)</div>
+      <h1>Was Gäste sagen</h1>
+      <p class="lead" style="margin:0 auto;">
+        Fiktive, aber realistische Beispielbewertungen für diese Demo-Version der Website.
+      </p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:16px;">
+    <div class="container">
+      <div class="review-wall">
+
+        <div class="review-card">
+          <div class="review-head">
+            <div class="review-avatar" style="background:#ff5b3d;">MK</div>
+            <div class="review-meta"><div class="review-name">Meike Krüger</div><div class="review-date">12. August 2026</div></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-body">Die Haxe war so, wie sie bei meiner Oma war — knusprig außen, zart innen. Das Alt schmeckt, als käme es direkt vom Fass nebenan, weil es das ja auch tut.</p>
+          <div class="review-source">Google-Rezension</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-head">
+            <div class="review-avatar" style="background:#17c288;">TÖ</div>
+            <div class="review-meta"><div class="review-name">Tarik Öztürk</div><div class="review-date">3. Juli 2026</div></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-body">Wir waren zu sechst am Samstag ohne Reservierung da — trotzdem in 15 Minuten einen Tisch bekommen. Der Service war entspannt, nicht gehetzt, auch als es voll wurde.</p>
+          <div class="review-source">TripAdvisor</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-head">
+            <div class="review-avatar" style="background:#ffb84d; color:#3a2000;">SL</div>
+            <div class="review-meta"><div class="review-name">Sabine Lehmann</div><div class="review-date">28. Juni 2026</div></div>
+          </div>
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-body">Sehr gutes Essen, an einem vollen Donnerstagabend aber deutlich laut. Würde trotzdem sofort wiederkommen, allein wegen des Sauerbratens.</p>
+          <div class="review-source">Google-Rezension</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-head">
+            <div class="review-avatar" style="background:#d94427;">JB</div>
+            <div class="review-meta"><div class="review-name">Jonas Bergmann</div><div class="review-date">15. September 2026</div></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-body">Geschäftsessen mit Kollegen aus Köln — in 40 Minuten fertig, ohne dass es gehetzt wirkte. Das Kotelett war die richtige Wahl für die Mittagspause.</p>
+          <div class="review-source">Google-Rezension</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-head">
+            <div class="review-avatar" style="background:#0e9f5f;">FW</div>
+            <div class="review-meta"><div class="review-name">Franziska Weidner</div><div class="review-date">2. Mai 2026</div></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-body">Meinen 40. Geburtstag hier gefeiert. Das Personal hat uns ohne große Ankündigung eine Kerze auf den Apfelstrudel gestellt — kleine Geste, aber genau richtig.</p>
+          <div class="review-source">TripAdvisor</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-head">
+            <div class="review-avatar" style="background:#6f676a;">HV</div>
+            <div class="review-meta"><div class="review-name">Henrik Voss</div><div class="review-date">19. April 2026</div></div>
+          </div>
+          <div class="review-stars">★★★☆☆</div>
+          <p class="review-body">Essen war gut, keine Frage. Aber wir mussten nach dem Hauptgang fast 20 Minuten auf die Rechnung warten, obwohl kaum was los war. Das trübt den sonst positiven Eindruck etwas.</p>
+          <div class="review-source">Google-Rezension</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-head">
+            <div class="review-avatar" style="background:#ff5b3d;">AD</div>
+            <div class="review-meta"><div class="review-name">Aylin Demir</div><div class="review-date">30. August 2026</div></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-body">Erster Besuch in Düsseldorf und direkt richtig gelandet. Das Altbier war neu für mich — deutlich malziger als Kölsch, hat mir aber besser geschmeckt.</p>
+          <div class="review-source">TripAdvisor</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-head">
+            <div class="review-avatar" style="background:#17c288;">PG</div>
+            <div class="review-meta"><div class="review-name">Peter Grunwald</div><div class="review-date">8. Januar 2026</div></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-body">Komme seit über 20 Jahren hierher. Was mich immer wieder überzeugt: Es schmeckt jedes Mal gleich gut, nicht mal besser, mal schlechter wie anderswo.</p>
+          <div class="review-source">Google-Rezension</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-head">
+            <div class="review-avatar" style="background:#ffb84d; color:#3a2000;">CF</div>
+            <div class="review-meta"><div class="review-name">Carolin Fischer</div><div class="review-date">22. Oktober 2025</div></div>
+          </div>
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-body">Als Vegetarierin war die Auswahl überschaubar, aber die Käsespätzle waren richtig gut gemacht, nicht nur eine Pflichtübung auf der Karte.</p>
+          <div class="review-source">Google-Rezension</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block dark" style="text-align:center;">
+    <div class="container">
+      <h2 style="font-size:1.6rem;">Selbst überzeugen?</h2>
+      <p style="max-width:50ch; margin:0 auto 22px;">Reservieren Sie Ihren Tisch und probieren Sie es selbst.</p>
+      <a class="btn btn-solid" href="reservierung.html">Tisch reservieren</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Brauhaus Am Dreieck</h4>
+        <p>Rheinische Küche und hausgebrautes Altbier, mitten in Düsseldorf.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="speisekarte.html">Speisekarte</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="bewertungen.html">Bewertungen</a></li>
+          <li><a href="reservierung.html">Reservieren</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>Blücherstraße 6, 40477 Düsseldorf</li>
+          <li>0211 45 67 89 0</li>
+          <li>info@brauhaus-am-dreieck.example</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Brauhaus Am Dreieck — Demo-Website, fiktives Restaurant.</span>
+      <span>Datenschutz · Impressum</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

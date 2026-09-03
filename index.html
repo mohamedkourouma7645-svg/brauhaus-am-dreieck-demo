@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brauhaus Am Dreieck — Rheinische Küche &amp; Altbier in Düsseldorf</title>
+<meta name="description" content="Brauhaus Am Dreieck: rheinische Küche, hausgebrautes Altbier und eine Gaststube mit Charakter. Blücherstraße 6, 40477 Düsseldorf.">
+<meta property="og:title" content="Brauhaus Am Dreieck">
+<meta property="og:description" content="Rheinische Küche, hausgebrautes Altbier, Blücherstraße 6, Düsseldorf.">
+<meta property="og:type" content="restaurant">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<button type="button" class="order-badge" id="order-badge" hidden aria-haspopup="dialog">
+  <span class="order-badge-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+    <span class="order-badge-count" id="order-badge-count" hidden>0</span>
+  </span>
+  <span class="order-badge-text">
+    <span class="order-badge-label" id="order-badge-label">Ihre Bestellung</span>
+    <span class="order-badge-number" id="order-badge-number"></span>
+  </span>
+</button>
+
+<div class="cart-scrim" id="cart-scrim" hidden></div>
+<div class="cart-panel" id="cart-panel" hidden role="dialog" aria-modal="true" aria-labelledby="cart-panel-title">
+  <div class="cart-panel-handle"></div>
+  <div class="cart-panel-header">
+    <h2 id="cart-panel-title">Ihre Bestellung</h2>
+    <button type="button" class="cart-close" id="cart-close" aria-label="Schließen">&times;</button>
+  </div>
+  <div class="cart-panel-body">
+    <ul class="cart-items" id="cart-items"></ul>
+    <p class="cart-empty" id="cart-empty" hidden>Ihr Warenkorb ist noch leer &mdash; f&uuml;gen Sie Gerichte aus der Speisekarte hinzu.</p>
+    <div class="cart-confirm" id="cart-confirm" hidden></div>
+  </div>
+  <div class="cart-panel-footer" id="cart-footer">
+    <div class="cart-total"><span>Gesamt</span><strong id="cart-total-amount">0,00 &euro;</strong></div>
+    <button type="button" class="btn btn-solid cart-checkout" id="cart-checkout" disabled>Bestellung aufgeben</button>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg width="24" height="24" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandBadgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff6b45"/>
+            <stop offset="100%" stop-color="#b33517"/>
+          </linearGradient>
+          <path id="brandArcTop" d="M 12,54 A 38,38 0 1 1 88,54" fill="none"/>
+          <path id="brandArcBottom" d="M 12,50 A 38,38 0 1 0 88,50" fill="none"/>
+        </defs>
+        <circle cx="50" cy="50" r="46" fill="url(#brandBadgeGrad)" stroke="#0e9f5f" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#fbfaf7" stroke-width="1" opacity="0.5"/>
+        <text font-family="Sora, sans-serif" font-weight="800" font-size="8.4" letter-spacing="1.5" fill="#fbfaf7"><textPath href="#brandArcTop" startOffset="50%" text-anchor="middle">BRAUHAUS</textPath></text>
+        <text font-family="Sora, sans-serif" font-weight="800" font-size="7.6" letter-spacing="1.2" fill="#fbfaf7"><textPath href="#brandArcBottom" startOffset="50%" text-anchor="middle">AM DREIECK</textPath></text>
+        <text x="50" y="57" font-family="Sora, sans-serif" font-weight="800" font-size="22" fill="#fbfaf7" text-anchor="middle">BAD</text>
+      </svg>
+      Brauhaus Am Dreieck <span class="brand-mark">Düsseldorf</span>
+    </a>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Start</a></li>
+        <li><a href="speisekarte.html">Speisekarte</a></li>
+          <li><a href="bowling.html">Bowling</a></li>
+        <li><a href="bowling.html">Bowling</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="bewertungen.html">Bewertungen</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <a class="nav-cta" href="reservierung.html">Tisch reservieren</a>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Menü öffnen">☰</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO — Text sofort sichtbar, klares Bild daneben ============ -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero-grid always-visible" style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:44px; align-items:center;">
+        <div>
+          <div class="eyebrow">Hausbrauerei in Düsseldorf</div>
+          <h1>Deftig, ehrlich, <em>seit Generationen</em> so gebraut.</h1>
+          <p class="lead">
+            Rheinische Küche und frisch gezapftes Altbier in einer Gaststube, in der noch
+            mit der Hand auf den Tisch gerechnet wird. Blücherstraße 6, mitten in Düsseldorf.
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 26px;">
+            <a class="btn btn-solid" href="reservierung.html">Tisch reservieren</a>
+            <a class="btn btn-line" href="speisekarte.html">Speisekarte ansehen</a>
+          </div>
+        </div>
+
+        <figure class="art-frame hover-zoom always-visible" style="aspect-ratio: 4/5; margin:0;">
+          <img class="art-visual" src="assets/photos/hero.jpg" alt="Gemütliche Gaststube mit Holztischen, Backsteinwänden und warmer Beleuchtung">
+          <figcaption>Unsere Gaststube · Foto: Valentin Ilas / Pexels</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ÜBER UNS + INFO ============ -->
+  <section class="block">
+    <div class="container">
+      <div class="feature-row reveal-stagger">
+        <div class="card spotlight">
+          <div class="eyebrow">Seit 1987 in Familienhand</div>
+          <h2 style="font-size:1.6rem;">Ein Wirtshaus, kein Konzept</h2>
+          <p>
+            Wir kochen rheinisch, wie es unsere Großmütter getan haben — Sauerbraten,
+            der drei Tage zieht, Schweinshaxe aus dem eigenen Ofen, und ein Altbier,
+            das direkt aus dem Kessel hinter der Theke kommt. Keine Speisekarte mit
+            hundert Gerichten, dafür jedes einzelne mit Sorgfalt.
+          </p>
+        </div>
+        <div class="card spotlight">
+          <h3 style="font-size:1.05rem;">🕐 Öffnungszeiten</h3>
+          <ul class="info-list">
+            <li><span>Mo – Do &amp; So</span><span>11:00–00:00</span></li>
+            <li><span>Fr – Sa</span><span>11:00–01:00</span></li>
+          </ul>
+        </div>
+        <div class="card spotlight">
+          <h3 style="font-size:1.05rem;">📍 Adresse &amp; Zahlung</h3>
+          <address style="color:var(--paper-dim); margin-bottom:14px;">
+            Blücherstraße 6, 40477 Düsseldorf<br>0211 45 67 89 0
+          </address>
+          <div class="pay-row">
+            <span class="pay-badge">💶 Bargeld</span>
+            <span class="pay-badge">💳 EC-Karte</span>
+            <span class="pay-badge">💳 Kreditkarte</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIGNATURE-GERICHTE ============ -->
+  <section class="block alt">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Was bei uns niemand auslässt</div>
+        <h2>Unsere <em>Klassiker</em></h2>
+      </div>
+
+      <div class="reveal-stagger" style="display:grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: auto auto; gap:20px;">
+        <figure class="art-frame reveal hover-zoom" style="grid-row: span 2; aspect-ratio: 4/5; margin:0;">
+          <img class="art-visual" src="assets/photos/home_schweinshaxe.jpg" alt="Knusprig gebratene Schweinshaxe auf einem Holzbrett">
+          <figcaption>Schweinshaxe, knusprig gebraten · Foto: Vinícius Caricatte / Pexels</figcaption>
+        </figure>
+
+        <div class="card spotlight" style="display:flex; align-items:center; gap:20px;">
+          <div>
+            <span class="eyebrow" style="margin-bottom:6px;">Der Klassiker</span>
+            <h3 style="font-size:1.25rem; margin-bottom:6px;">Schweinshaxe mit Sauerkraut &amp; Knödel</h3>
+            <p style="margin:0;">Knusprig gebraten, sechs Stunden im eigenen Sud gegart.</p>
+          </div>
+        </div>
+
+        <div class="card spotlight" style="display:flex; align-items:center; gap:20px;">
+          <div>
+            <span class="eyebrow" style="margin-bottom:6px;">Für den schnellen Hunger</span>
+            <h3 style="font-size:1.25rem; margin-bottom:6px;">Currywurst mit Pommes</h3>
+            <p style="margin:0;">Hausgemachte Currysoße, nicht zu süß, mit echtem Biss.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:34px;">
+        <a class="btn btn-line" href="speisekarte.html">Ganze Speisekarte ansehen →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEWERTUNGEN — Vorschau ============ -->
+  <section class="block dark">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Was Gäste sagen</div>
+        <h2>Bewertungen aus der <em>Nachbarschaft</em></h2>
+      </div>
+
+      <div class="reveal-stagger" style="display:grid; grid-template-columns: repeat(3,1fr); gap:20px;">
+        <div class="card spotlight reveal">
+          <div class="review-head">
+            <div class="review-avatar" style="background:#ff5b3d;">MK</div>
+            <div class="review-meta">
+              <div class="review-name">Meike Krüger</div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+          </div>
+          <p style="color:var(--paper-dim);">Die Haxe war so, wie sie bei meiner Oma war — und das Altbier schmeckt, als käme es direkt vom Fass nebenan.</p>
+        </div>
+        <div class="card spotlight reveal">
+          <div class="review-head">
+            <div class="review-avatar" style="background:#17c288;">TÖ</div>
+            <div class="review-meta">
+              <div class="review-name">Tarik Öztürk</div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+          </div>
+          <p style="color:var(--paper-dim);">Wir waren zu sechst am Samstag ohne Reservierung da — haben trotzdem in 15 Minuten einen Tisch bekommen. Service war entspannt, nicht gehetzt.</p>
+        </div>
+        <div class="card spotlight reveal">
+          <div class="review-head">
+            <div class="review-avatar" style="background:#ffb84d; color:#3a2000;">SL</div>
+            <div class="review-meta">
+              <div class="review-name">Sabine Lehmann</div>
+              <div class="review-stars">★★★★☆</div>
+            </div>
+          </div>
+          <p style="color:var(--paper-dim);">Sehr gutes Essen, etwas laut an einem vollen Donnerstagabend. Würde trotzdem sofort wiederkommen, allein wegen des Sauerbratens.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:30px;">
+        <a class="btn btn-line" href="bewertungen.html">Alle Bewertungen lesen →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="block">
+    <div class="container" style="text-align:center;">
+      <div class="section-heading center" style="margin-bottom:22px;">
+        <h2>Ein Tisch ist schnell <em>reserviert</em>.</h2>
+        <p class="lead" style="margin:0 auto;">Für Gruppen ab acht Personen empfehlen wir, vorab kurz anzurufen.</p>
+      </div>
+      <a class="btn btn-solid" href="reservierung.html">Jetzt reservieren</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Brauhaus Am Dreieck</h4>
+        <p>Rheinische Küche und hausgebrautes Altbier, mitten in Düsseldorf.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="speisekarte.html">Speisekarte</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="bewertungen.html">Bewertungen</a></li>
+          <li><a href="reservierung.html">Reservieren</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>Blücherstraße 6, 40477 Düsseldorf</li>
+          <li>0211 45 67 89 0</li>
+          <li>info@brauhaus-am-dreieck.example</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Brauhaus Am Dreieck — Demo-Website, fiktives Restaurant.</span>
+      <span>Datenschutz · Impressum</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

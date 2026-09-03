@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speisekarte — Brauhaus Am Dreieck</title>
+<meta name="description" content="Die vollständige Speisekarte des Brauhaus Am Dreieck: rheinische Klassiker, Vorspeisen, Vegetarisches und Getränke.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<button type="button" class="order-badge" id="order-badge" hidden aria-haspopup="dialog">
+  <span class="order-badge-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+    <span class="order-badge-count" id="order-badge-count" hidden>0</span>
+  </span>
+  <span class="order-badge-text">
+    <span class="order-badge-label" id="order-badge-label">Ihre Bestellung</span>
+    <span class="order-badge-number" id="order-badge-number"></span>
+  </span>
+</button>
+
+<div class="cart-scrim" id="cart-scrim" hidden></div>
+<div class="cart-panel" id="cart-panel" hidden role="dialog" aria-modal="true" aria-labelledby="cart-panel-title">
+  <div class="cart-panel-handle"></div>
+  <div class="cart-panel-header">
+    <h2 id="cart-panel-title">Ihre Bestellung</h2>
+    <button type="button" class="cart-close" id="cart-close" aria-label="Schließen">&times;</button>
+  </div>
+  <div class="cart-panel-body">
+    <ul class="cart-items" id="cart-items"></ul>
+    <p class="cart-empty" id="cart-empty" hidden>Ihr Warenkorb ist noch leer &mdash; f&uuml;gen Sie Gerichte aus der Speisekarte hinzu.</p>
+    <div class="cart-confirm" id="cart-confirm" hidden></div>
+  </div>
+  <div class="cart-panel-footer" id="cart-footer">
+    <div class="cart-total"><span>Gesamt</span><strong id="cart-total-amount">0,00 &euro;</strong></div>
+    <button type="button" class="btn btn-solid cart-checkout" id="cart-checkout" disabled>Bestellung aufgeben</button>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg width="24" height="24" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandBadgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff6b45"/>
+            <stop offset="100%" stop-color="#b33517"/>
+          </linearGradient>
+          <path id="brandArcTop" d="M 12,54 A 38,38 0 1 1 88,54" fill="none"/>
+          <path id="brandArcBottom" d="M 12,50 A 38,38 0 1 0 88,50" fill="none"/>
+        </defs>
+        <circle cx="50" cy="50" r="46" fill="url(#brandBadgeGrad)" stroke="#0e9f5f" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#fbfaf7" stroke-width="1" opacity="0.5"/>
+        <text font-family="Sora, sans-serif" font-weight="800" font-size="8.4" letter-spacing="1.5" fill="#fbfaf7"><textPath href="#brandArcTop" startOffset="50%" text-anchor="middle">BRAUHAUS</textPath></text>
+        <text font-family="Sora, sans-serif" font-weight="800" font-size="7.6" letter-spacing="1.2" fill="#fbfaf7"><textPath href="#brandArcBottom" startOffset="50%" text-anchor="middle">AM DREIECK</textPath></text>
+        <text x="50" y="57" font-family="Sora, sans-serif" font-weight="800" font-size="22" fill="#fbfaf7" text-anchor="middle">BAD</text>
+      </svg>
+      Brauhaus <span class="brand-mark">Am Dreieck</span>
+    </a>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="speisekarte.html" aria-current="page">Speisekarte</a></li>
+        <li><a href="bowling.html">Bowling</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="bewertungen.html">Bewertungen</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <a class="nav-cta" href="reservierung.html">Tisch reservieren</a>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Menü öffnen">☰</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container-narrow" style="text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Rheinisch &amp; deftig</div>
+      <h1>Die Speisekarte</h1>
+      <p class="lead" style="margin:0 auto;">
+        Alle Preise inklusive Mehrwertsteuer. Bei Allergien und Unverträglichkeiten
+        sprechen Sie gerne unser Personal an.
+      </p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:20px;">
+    <div class="container">
+      <div class="menu-grid reveal-stagger">
+
+        <div class="menu-category-heading"><h3>Vorspeisen &amp; Suppen</h3><div class="rule"></div></div>
+
+        <div class="menu-item reveal" data-dish-name="Reibekuchen mit Apfelmus">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/reibekuchen.jpg" alt="Symbolfoto: Kartoffelgericht" loading="lazy"></div>
+          <h4>Reibekuchen mit Apfelmus</h4>
+          <div class="price">7,50 €</div>
+          <p>Knusprig gebratene Kartoffelpuffer, hausgemachtes Apfelmus.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Reibekuchen mit Apfelmus">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-reibekuchen-mit-apfelmus" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Gulaschsuppe">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/gulaschsuppe.jpg" alt="Symbolfoto: Suppe" loading="lazy"></div>
+          <h4>Gulaschsuppe</h4>
+          <div class="price">6,90 €</div>
+          <p>Kräftig eingekocht, mit Paprika und einem Stück Landbrot.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Gulaschsuppe">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-gulaschsuppe" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Matjes „Hausfrauen Art“">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/matjes.jpg" alt="Symbolfoto: Fischgericht" loading="lazy"></div>
+          <h4>Matjes „Hausfrauen Art“</h4>
+          <div class="price">9,80 €</div>
+          <p>Mit Äpfeln, Zwiebeln und Bratkartoffeln.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Matjes „Hausfrauen Art“">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-matjes-hausfrauen-art" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Halver Hahn">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/halver_hahn.jpg" alt="Symbolfoto: Roggenbrot mit Käse" loading="lazy"></div>
+          <h4>Halver Hahn</h4><span class="tag">Klassiker</span>
+          <div class="price">6,50 €</div>
+          <p>Röggelchen mit mittelaltem Gouda, Butter, Mostert und Gewürzgurke.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Halver Hahn">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-halver-hahn" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+
+        <div class="menu-category-heading"><h3>Salate</h3><div class="rule"></div></div>
+
+        <div class="menu-item reveal" data-dish-name="Blattsalate der Saison">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/blattsalat.jpg" alt="Symbolfoto: Blattsalat" loading="lazy"></div>
+          <h4>Blattsalate der Saison</h4>
+          <div class="price">7,90 €</div>
+          <p>Mit Balsamico-Dressing, geröstete Kerne.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Blattsalate der Saison">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-blattsalate-der-saison" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Wurstsalat mit Röggelchen">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/wurstsalat.jpg" alt="Symbolfoto: Wurst mit Beilagen" loading="lazy"></div>
+          <h4>Wurstsalat mit Röggelchen</h4>
+          <div class="price">9,50 €</div>
+          <p>Fleischwurst, rote Zwiebeln, Essig-Öl-Marinade.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Wurstsalat mit Röggelchen">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-wurstsalat-mit-roggelchen" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+
+        <div class="menu-category-heading"><h3>Klassiker vom Haus</h3><div class="rule"></div></div>
+
+        <div class="menu-item reveal" data-dish-name="Wiener Schnitzel mit Bratkartoffeln">
+          <div class="menu-thumb-wrap"><img src="assets/thumbs/schnitzel.jpg" alt="Wiener Schnitzel mit Bratkartoffeln und Salat" loading="lazy"></div>
+          <h4>Wiener Schnitzel mit Bratkartoffeln</h4>
+          <div class="price">16,50 €</div>
+          <p>Kalbsschnitzel, goldbraun paniert, hausgemachte Bratkartoffeln.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Wiener Schnitzel mit Bratkartoffeln">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-wiener-schnitzel-mit-bratkartoffeln" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Schweinshaxe mit Sauerkraut &amp; Knödel">
+          <div class="menu-thumb-wrap"><img src="assets/thumbs/schweinshaxe.jpg" alt="Knusprig gebratene Schweinshaxe" loading="lazy"></div>
+          <h4>Schweinshaxe mit Sauerkraut &amp; Knödel</h4><span class="tag">Empfehlung</span>
+          <div class="price">18,90 €</div>
+          <p>Sechs Stunden im eigenen Sud gegart, knusprig gebraten.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Schweinshaxe mit Sauerkraut &amp; Knödel">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-schweinshaxe-mit-sauerkraut-amp-knodel" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Currywurst mit Pommes">
+          <div class="menu-thumb-wrap"><img src="assets/thumbs/currywurst.jpg" alt="Currywurst mit Pommes frites" loading="lazy"></div>
+          <h4>Currywurst mit Pommes</h4>
+          <div class="price">8,90 €</div>
+          <p>Hausgemachte Currysoße, nicht zu süß.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Currywurst mit Pommes">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-currywurst-mit-pommes" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Kasseler mit Sauerkraut">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/kasseler.jpg" alt="Symbolfoto: Schweinefleisch" loading="lazy"></div>
+          <h4>Kasseler mit Sauerkraut</h4>
+          <div class="price">14,90 €</div>
+          <p>Mit Salzkartoffeln und eigener Senfsoße.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Kasseler mit Sauerkraut">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-kasseler-mit-sauerkraut" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Kotelett vom Grill">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/kotelett.jpg" alt="Symbolfoto: gegrilltes Fleisch" loading="lazy"></div>
+          <h4>Kotelett vom Grill</h4>
+          <div class="price">15,90 €</div>
+          <p>Mit Kräuterbutter und hausgemachten Bratkartoffeln.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Kotelett vom Grill">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-kotelett-vom-grill" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+
+        <div class="menu-category-heading"><h3>Rheinische Spezialitäten</h3><div class="rule"></div></div>
+
+        <div class="menu-item reveal" data-dish-name="Rheinischer Sauerbraten">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/sauerbraten.jpg" alt="Symbolfoto: Fleischgericht mit Soße" loading="lazy"></div>
+          <h4>Rheinischer Sauerbraten</h4><span class="tag">Empfehlung</span>
+          <div class="price">17,50 €</div>
+          <p>Drei Tage mariniert, mit Rotkohl und Kartoffelknödel.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Rheinischer Sauerbraten">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-rheinischer-sauerbraten" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Himmel un Ääd">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/himmel_und_aed.jpg" alt="Symbolfoto: Kartoffelpüree" loading="lazy"></div>
+          <h4>Himmel un Ääd</h4>
+          <div class="price">13,50 €</div>
+          <p>Kartoffelpüree, Apfelmus, gebratene Blutwurst und Röstzwiebeln.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Himmel un Ääd">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-himmel-un-aad" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+
+        <div class="menu-category-heading"><h3>Vegetarisch</h3><div class="rule"></div></div>
+
+        <div class="menu-item reveal" data-dish-name="Käsespätzle mit Röstzwiebeln">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/kaesespaetzle.jpg" alt="Symbolfoto: Käse-Nudelgericht" loading="lazy"></div>
+          <h4>Käsespätzle mit Röstzwiebeln</h4>
+          <div class="price">12,50 €</div>
+          <p>Hausgemachte Spätzle, Bergkäse, knusprige Zwiebeln.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Käsespätzle mit Röstzwiebeln">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-kasespatzle-mit-rostzwiebeln" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Reibekuchen-Teller">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/reibekuchen.jpg" alt="Symbolfoto: Kartoffelgericht" loading="lazy"></div>
+          <h4>Reibekuchen-Teller</h4>
+          <div class="price">11,90 €</div>
+          <p>Mit Apfelmus und Blattsalat, als Hauptgericht.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Reibekuchen-Teller">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-reibekuchen-teller" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+
+        <div class="menu-category-heading"><h3>Beilagen</h3><div class="rule"></div></div>
+
+        <div class="menu-item reveal" data-dish-name="Bratkartoffeln">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/bratkartoffeln.jpg" alt="Symbolfoto: gebratene Kartoffeln" loading="lazy"></div>
+          <h4>Bratkartoffeln</h4>
+          <div class="price">4,50 €</div>
+          <p>Mit Speck und Zwiebeln.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Bratkartoffeln">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-bratkartoffeln" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Pommes frites">
+          <div class="menu-thumb-wrap"><img src="assets/thumbs/pommes.jpg" alt="Knusprige Pommes frites" loading="lazy"></div>
+          <h4>Pommes frites</h4>
+          <div class="price">4,00 €</div>
+          <p></p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Pommes frites">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-pommes-frites" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Rotkohl">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/schweinshaxe.jpg" alt="Symbolfoto: Kohlbeilage" loading="lazy"></div>
+          <h4>Rotkohl</h4>
+          <div class="price">3,50 €</div>
+          <p></p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Rotkohl">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-rotkohl" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Sauerkraut">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/schweinshaxe.jpg" alt="Symbolfoto: Sauerkraut" loading="lazy"></div>
+          <h4>Sauerkraut</h4>
+          <div class="price">3,50 €</div>
+          <p></p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Sauerkraut">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-sauerkraut" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+
+        <div class="menu-category-heading"><h3>Nachspeisen</h3><div class="rule"></div></div>
+
+        <div class="menu-item reveal" data-dish-name="Apfelstrudel mit Vanillesauce">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/apfelstrudel.jpg" alt="Symbolfoto: Apfelgebäck" loading="lazy"></div>
+          <h4>Apfelstrudel mit Vanillesauce</h4>
+          <div class="price">6,50 €</div>
+          <p>Warm serviert, hausgemachte Vanillesauce.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Apfelstrudel mit Vanillesauce">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-apfelstrudel-mit-vanillesauce" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Rote Grütze mit Vanillesauce">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/rote_gruetze.jpg" alt="Symbolfoto: Beerendessert" loading="lazy"></div>
+          <h4>Rote Grütze mit Vanillesauce</h4>
+          <div class="price">5,90 €</div>
+          <p></p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Rote Grütze mit Vanillesauce">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-rote-grutze-mit-vanillesauce" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Kaiserschmarrn mit Apfelmus">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/kaiserschmarrn.jpg" alt="Symbolfoto: Pfannkuchen" loading="lazy"></div>
+          <h4>Kaiserschmarrn mit Apfelmus</h4>
+          <div class="price">8,50 €</div>
+          <p>Für zwei Personen zum Teilen.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Kaiserschmarrn mit Apfelmus">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-kaiserschmarrn-mit-apfelmus" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+
+        <div class="menu-category-heading"><h3>Getränke</h3><div class="rule"></div></div>
+
+        <div class="menu-item reveal" data-dish-name="Alt vom Fass, 0,25 l">
+          <div class="menu-thumb-wrap"><img src="assets/thumbs/altbier.jpg" alt="Frisch gezapftes Altbier" loading="lazy"></div>
+          <h4>Alt vom Fass, 0,25 l</h4><span class="tag">Hausgebraut</span>
+          <div class="price">2,60 €</div>
+          <p>Direkt aus dem Kessel hinter der Theke.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Alt vom Fass, 0,25 l">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-alt-vom-fass-0-25-l" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Alkoholfreies Alt, 0,33 l">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/alkoholfrei.jpg" alt="Symbolfoto: Bierglas" loading="lazy"></div>
+          <h4>Alkoholfreies Alt, 0,33 l</h4>
+          <div class="price">3,20 €</div>
+          <p></p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Alkoholfreies Alt, 0,33 l">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-alkoholfreies-alt-0-33-l" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Apfelschorle, 0,4 l">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/apfelschorle.jpg" alt="Symbolfoto: Fruchtschorle" loading="lazy"></div>
+          <h4>Apfelschorle, 0,4 l</h4>
+          <div class="price">3,00 €</div>
+          <p></p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Apfelschorle, 0,4 l">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-apfelschorle-0-4-l" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+        <div class="menu-item reveal" data-dish-name="Rivaner, Rheinhessen, 0,2 l">
+          <div class="menu-thumb-wrap approx" title="Symbolfoto – entspricht nicht exakt dem servierten Gericht"><img src="assets/thumbs/rivaner.jpg" alt="Symbolfoto: Weißwein" loading="lazy"></div>
+          <h4>Rivaner, Rheinhessen, 0,2 l</h4>
+          <div class="price">4,50 €</div>
+          <p>Trocken, aus dem eigenen Weinkeller.</p>
+        <div class="dish-order-row">
+          <div class="dish-counter" role="group" aria-label="Menge — Rivaner, Rheinhessen, 0,2 l">
+            <button type="button" class="dish-counter-btn" data-counter-action="dec" aria-label="Weniger">−</button>
+            <span class="dish-counter-value" id="counter-rivaner-rheinhessen-0-2-l" aria-live="polite">0</span>
+            <button type="button" class="dish-counter-btn" data-counter-action="inc" aria-label="Mehr">+</button>
+          </div>
+          <button type="button" class="dish-add-btn">Bestellen</button>
+          <p class="order-added" role="status"></p>
+        </div>
+        </div>
+
+      </div>
+
+      <div class="card spotlight reveal" style="max-width:420px; margin:44px auto 0;">
+        <h3 style="font-size:1.05rem;">🎳 Bowling</h3>
+        <ul class="info-list">
+          <li><span>1 Bahn</span><span>30 € / Stunde</span></li>
+          <li><span>2 Bahnen</span><span>40 € / Stunde</span></li>
+        </ul>
+        <p style="margin-top:14px;"><a href="bowling.html" style="color:var(--ember); font-weight:700; text-decoration:none;">Mehr über unsere Bowlingbahnen →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dark" style="text-align:center;">
+    <div class="container">
+      <h2 style="font-size:1.6rem;">Lust bekommen?</h2>
+      <p style="max-width:50ch; margin:0 auto 22px;">Reservieren Sie Ihren Tisch — besonders am Wochenende empfiehlt sich das im Voraus.</p>
+      <a class="btn btn-solid" href="reservierung.html">Tisch reservieren</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Brauhaus Am Dreieck</h4>
+        <p>Rheinische Küche und hausgebrautes Altbier, mitten in Düsseldorf.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="speisekarte.html">Speisekarte</a></li>
+          <li><a href="bowling.html">Bowling</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="bewertungen.html">Bewertungen</a></li>
+          <li><a href="reservierung.html">Reservieren</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>Blücherstraße 6, 40477 Düsseldorf</li>
+          <li>0211 45 67 89 0</li>
+          <li>info@brauhaus-am-dreieck.example</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Brauhaus Am Dreieck — Demo-Website, fiktives Restaurant.</span>
+      <span>Datenschutz · Impressum</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

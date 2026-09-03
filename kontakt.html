@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt — Brauhaus Am Dreieck</title>
+<meta name="description" content="Adresse, Telefon und Kontaktformular des Brauhaus Am Dreieck in Düsseldorf.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<button type="button" class="order-badge" id="order-badge" hidden aria-haspopup="dialog">
+  <span class="order-badge-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+    <span class="order-badge-count" id="order-badge-count" hidden>0</span>
+  </span>
+  <span class="order-badge-text">
+    <span class="order-badge-label" id="order-badge-label">Ihre Bestellung</span>
+    <span class="order-badge-number" id="order-badge-number"></span>
+  </span>
+</button>
+
+<div class="cart-scrim" id="cart-scrim" hidden></div>
+<div class="cart-panel" id="cart-panel" hidden role="dialog" aria-modal="true" aria-labelledby="cart-panel-title">
+  <div class="cart-panel-handle"></div>
+  <div class="cart-panel-header">
+    <h2 id="cart-panel-title">Ihre Bestellung</h2>
+    <button type="button" class="cart-close" id="cart-close" aria-label="Schließen">&times;</button>
+  </div>
+  <div class="cart-panel-body">
+    <ul class="cart-items" id="cart-items"></ul>
+    <p class="cart-empty" id="cart-empty" hidden>Ihr Warenkorb ist noch leer &mdash; f&uuml;gen Sie Gerichte aus der Speisekarte hinzu.</p>
+    <div class="cart-confirm" id="cart-confirm" hidden></div>
+  </div>
+  <div class="cart-panel-footer" id="cart-footer">
+    <div class="cart-total"><span>Gesamt</span><strong id="cart-total-amount">0,00 &euro;</strong></div>
+    <button type="button" class="btn btn-solid cart-checkout" id="cart-checkout" disabled>Bestellung aufgeben</button>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg width="24" height="24" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandBadgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff6b45"/>
+            <stop offset="100%" stop-color="#b33517"/>
+          </linearGradient>
+          <path id="brandArcTop" d="M 12,54 A 38,38 0 1 1 88,54" fill="none"/>
+          <path id="brandArcBottom" d="M 12,50 A 38,38 0 1 0 88,50" fill="none"/>
+        </defs>
+        <circle cx="50" cy="50" r="46" fill="url(#brandBadgeGrad)" stroke="#0e9f5f" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#fbfaf7" stroke-width="1" opacity="0.5"/>
+        <text font-family="Sora, sans-serif" font-weight="800" font-size="8.4" letter-spacing="1.5" fill="#fbfaf7"><textPath href="#brandArcTop" startOffset="50%" text-anchor="middle">BRAUHAUS</textPath></text>
+        <text font-family="Sora, sans-serif" font-weight="800" font-size="7.6" letter-spacing="1.2" fill="#fbfaf7"><textPath href="#brandArcBottom" startOffset="50%" text-anchor="middle">AM DREIECK</textPath></text>
+        <text x="50" y="57" font-family="Sora, sans-serif" font-weight="800" font-size="22" fill="#fbfaf7" text-anchor="middle">BAD</text>
+      </svg>
+      Brauhaus <span class="brand-mark">Am Dreieck</span>
+    </a>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="speisekarte.html">Speisekarte</a></li>
+          <li><a href="bowling.html">Bowling</a></li>
+        <li><a href="bowling.html">Bowling</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="bewertungen.html">Bewertungen</a></li>
+        <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+      </ul>
+      <a class="nav-cta" href="reservierung.html">Tisch reservieren</a>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Menü öffnen">☰</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero" style="padding-bottom:0;">
+    <div class="container-narrow" style="text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Wir freuen uns auf Sie</div>
+      <h1>Kontakt</h1>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="split-grid" style="display:grid; grid-template-columns: 0.85fr 1fr; gap:40px; align-items:start;">
+
+        <div>
+          <figure class="art-frame reveal hover-zoom" style="aspect-ratio:1/1; margin-bottom:20px;">
+            <svg class="art-visual" viewBox="0 0 400 400" role="img" aria-label="Vereinfachte Lageskizze: Blücherstraße 6, Düsseldorf">
+              <rect width="400" height="400" fill="#171512"/>
+              <line x1="0" y1="200" x2="400" y2="200" stroke="#2a2018" stroke-width="18"/>
+              <line x1="200" y1="0" x2="200" y2="400" stroke="#2a2018" stroke-width="18"/>
+              <line x1="0" y1="200" x2="400" y2="200" stroke="#0e9f5f" stroke-width="2" stroke-dasharray="10 8"/>
+              <line x1="200" y1="0" x2="200" y2="400" stroke="#0e9f5f" stroke-width="2" stroke-dasharray="10 8"/>
+              <circle cx="230" cy="170" r="14" fill="#ff6b45"/>
+              <circle cx="230" cy="170" r="26" fill="none" stroke="#ff6b45" stroke-width="2" opacity="0.6"/>
+              <rect x="130" y="90" width="150" height="60" rx="8" fill="#2a2018" stroke="#ff6b45" stroke-width="1.5"/>
+            </svg>
+            <figcaption>Blücherstraße 6, 40477 Düsseldorf</figcaption>
+          </figure>
+
+          <div class="card spotlight">
+            <h3 style="font-size:1.02rem;">📍 Adresse</h3>
+            <address style="color:var(--paper-dim); margin-bottom:18px;">
+              Blücherstraße 6<br>40477 Düsseldorf<br><br>
+              Telefon: 0211 45 67 89 0<br>
+              E-Mail: info@brauhaus-am-dreieck.example
+            </address>
+            <h3 style="font-size:1.02rem;">💳 Zahlungsmöglichkeiten</h3>
+            <div class="pay-row">
+              <span class="pay-badge">💶 Bargeld</span>
+              <span class="pay-badge">💳 EC-Karte</span>
+              <span class="pay-badge">💳 Kreditkarte</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card reveal">
+          <h2 style="font-size:1.3rem;">Nachricht senden</h2>
+          <form id="contact-form" novalidate>
+            <div class="field">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" name="contact-name" placeholder="Ihr Name" required>
+              <div class="field-error" data-error-for="contact-name"></div>
+            </div>
+            <div class="field">
+              <label for="contact-email">E-Mail</label>
+              <input type="email" id="contact-email" name="contact-email" placeholder="ihre@email.de" required>
+              <div class="field-error" data-error-for="contact-email"></div>
+            </div>
+            <div class="field">
+              <label for="contact-message">Nachricht</label>
+              <textarea id="contact-message" name="contact-message" placeholder="Ihre Nachricht an uns" required></textarea>
+              <div class="field-error" data-error-for="contact-message"></div>
+            </div>
+            <button type="submit" class="btn btn-solid" style="width:100%;">Nachricht senden</button>
+          </form>
+          <p class="form-note">Demo — es wird aktuell keine Nachricht tatsächlich versendet.</p>
+          <div class="confirmation" id="contact-confirmation" role="status"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Brauhaus Am Dreieck</h4>
+        <p>Rheinische Küche und hausgebrautes Altbier, mitten in Düsseldorf.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="speisekarte.html">Speisekarte</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="bewertungen.html">Bewertungen</a></li>
+          <li><a href="reservierung.html">Reservieren</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>Blücherstraße 6, 40477 Düsseldorf</li>
+          <li>0211 45 67 89 0</li>
+          <li>info@brauhaus-am-dreieck.example</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Brauhaus Am Dreieck — Demo-Website, fiktives Restaurant.</span>
+      <span>Datenschutz · Impressum</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

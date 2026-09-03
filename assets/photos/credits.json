@@ -1,0 +1,74 @@
+{
+  "hero": {
+    "id": 33880394,
+    "photographer": "Valentin Ilas",
+    "url": "https://www.pexels.com/photo/cozy-european-pub-interior-with-wooden-tables-33880394/",
+    "src_large2x": "https://images.pexels.com/photos/33880394/pexels-photo-33880394.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "home_schweinshaxe": {
+    "id": 14007234,
+    "photographer": "Vinícius Caricatte",
+    "url": "https://www.pexels.com/photo/roasted-meat-with-bone-14007234/",
+    "src_large2x": "https://images.pexels.com/photos/14007234/pexels-photo-14007234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "gal_gaststube": {
+    "id": 35431225,
+    "photographer": "Tolga deniz Aran",
+    "url": "https://www.pexels.com/photo/rustic-industrial-light-fixture-in-cozy-bar-35431225/",
+    "src_large2x": "https://images.pexels.com/photos/35431225/pexels-photo-35431225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "gal_kessel": {
+    "id": 35966972,
+    "photographer": "Marcel Gierschick",
+    "url": "https://www.pexels.com/photo/modern-brewery-tanks-in-pilsen-czech-republic-35966972/",
+    "src_large2x": "https://images.pexels.com/photos/35966972/pexels-photo-35966972.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "gal_schweinshaxe": {
+    "id": 14007234,
+    "photographer": "Vinícius Caricatte",
+    "url": "https://www.pexels.com/photo/roasted-meat-with-bone-14007234/",
+    "src_large2x": "https://images.pexels.com/photos/14007234/pexels-photo-14007234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "gal_altbier": {
+    "id": 1267342,
+    "photographer": "ELEVATE",
+    "url": "https://www.pexels.com/photo/person-filling-drinking-glass-with-beer-on-tap-1267342/",
+    "src_large2x": "https://images.pexels.com/photos/1267342/pexels-photo-1267342.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "gal_schnitzel": {
+    "id": 19396433,
+    "photographer": "Nadin Sh",
+    "url": "https://www.pexels.com/photo/schnitzel-with-baked-potatoes-and-arugula-salad-19396433/",
+    "src_large2x": "https://images.pexels.com/photos/19396433/pexels-photo-19396433.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "gal_currywurst": {
+    "id": 38779809,
+    "photographer": "Patrick",
+    "url": "https://www.pexels.com/photo/delicious-currywurst-with-fries-and-mayo-outdoors-38779809/",
+    "src_large2x": "https://images.pexels.com/photos/38779809/pexels-photo-38779809.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "gal_theke": {
+    "id": 1872888,
+    "photographer": "Valeria Boltneva",
+    "url": "https://www.pexels.com/photo/brown-wooden-bar-1872888/",
+    "src_large2x": "https://images.pexels.com/photos/1872888/pexels-photo-1872888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "gal_tisch": {
+    "id": 30420679,
+    "photographer": "Daniil Kondrashin",
+    "url": "https://www.pexels.com/photo/cozy-restaurant-table-with-candlelit-ambiance-30420679/",
+    "src_large2x": "https://images.pexels.com/photos/30420679/pexels-photo-30420679.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "bowling": {
+    "id": 5952998,
+    "photographer": "Anna Shvets",
+    "url": "https://www.pexels.com/photo/bowling-alley-lane-5952998/",
+    "src_large2x": "https://images.pexels.com/photos/5952998/pexels-photo-5952998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "reservierung": {
+    "id": 19766948,
+    "photographer": "Pete Wales",
+    "url": "https://www.pexels.com/photo/reserved-restaurant-table-19766948/",
+    "src_large2x": "https://images.pexels.com/photos/19766948/pexels-photo-19766948.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  }
+}
