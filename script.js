@@ -1,6 +1,31 @@
 // Brauhaus Am Dreieck — comportement partagé du site (démo, sans backend)
 
 document.addEventListener('DOMContentLoaded', () => {
+  /* ---------- Cookie-Hinweis ---------- */
+  const cookieBanner = document.getElementById('cookie-banner');
+  if (cookieBanner) {
+    let bereitsAkzeptiert = false;
+    try {
+      bereitsAkzeptiert = localStorage.getItem('brauhaus_cookie_consent') === 'true';
+    } catch (e) {
+      bereitsAkzeptiert = false;
+    }
+    if (!bereitsAkzeptiert) {
+      cookieBanner.removeAttribute('hidden');
+      requestAnimationFrame(() => cookieBanner.classList.add('show'));
+    }
+    document.getElementById('cookie-accept')?.addEventListener('click', () => {
+      try {
+        localStorage.setItem('brauhaus_cookie_consent', 'true');
+      } catch (e) {
+        /* localStorage nicht verfügbar (z. B. privater Modus) — Banner schließt sich trotzdem,
+           erscheint beim nächsten Laden dieser Seitenansicht aber erneut. */
+      }
+      cookieBanner.classList.remove('show');
+      window.setTimeout(() => cookieBanner.setAttribute('hidden', ''), 400);
+    });
+  }
+
   /* ---------- Halo qui suit le curseur sur les cartes ---------- */
   document.querySelectorAll('.card.spotlight').forEach((card) => {
     card.addEventListener('pointermove', (e) => {

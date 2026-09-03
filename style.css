@@ -492,6 +492,20 @@ footer.site-footer { background: var(--ink-2); color: var(--paper-dim); padding:
 .cart-confirm-item { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding: 8px 10px; background: var(--ink-2); border-radius: var(--radius-sm); font-size: 0.92rem; }
 .cart-confirm-item-qty { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 700; font-size: 1.05rem; color: var(--ember); white-space: nowrap; }
 
+/* ---------- Cookie-Hinweis ---------- */
+.cookie-banner {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 700;
+  background: var(--paper); color: var(--ink);
+  padding: 18px 24px; box-shadow: var(--shadow-lg);
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;
+  transform: translateY(100%); transition: transform 0.4s var(--ease);
+}
+.cookie-banner.show { transform: translateY(0); }
+.cookie-banner[hidden] { display: none; }
+.cookie-banner p { margin: 0; font-size: 0.86rem; color: var(--ink); max-width: 640px; }
+.cookie-banner a { color: var(--ember-bright); font-weight: 700; text-decoration: underline; }
+.cookie-accept-btn { padding: 10px 22px; min-height: 44px; flex-shrink: 0; }
+
 @media (max-width: 760px) {
   .split-grid { grid-template-columns: 1fr !important; }
   .feature-row { grid-template-columns: 1fr; }

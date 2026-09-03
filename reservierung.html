@@ -12,6 +12,11 @@
 <body>
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
+<div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-label="Cookie-Hinweis">
+  <p>Diese Demo-Website speichert nur technisch Notwendiges (z.&nbsp;B. Ihren Warenkorb) im Session Storage Ihres Browsers &mdash; keine Analyse- oder Marketing-Cookies. <a href="datenschutz.html">Mehr erfahren</a></p>
+  <button type="button" class="btn btn-solid cookie-accept-btn" id="cookie-accept">Verstanden</button>
+</div>
+
 <button type="button" class="order-badge" id="order-badge" hidden aria-haspopup="dialog">
   <span class="order-badge-icon" aria-hidden="true">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
@@ -175,7 +180,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Brauhaus Am Dreieck — Demo-Website, fiktives Restaurant.</span>
-      <span>Datenschutz · Impressum</span>
+      <span><a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a></span>
     </div>
   </div>
 </footer>
