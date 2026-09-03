@@ -318,6 +318,9 @@ address { font-style: normal; }
 
 @media (max-width: 760px) { .review-wall { columns: 1 100%; } }
 
+.reviews-preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 860px) { .reviews-preview-grid { grid-template-columns: 1fr; } }
+
 /* ---------- Gallery ---------- */
 .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 170px; gap: 14px; }
 .gallery-item { border-radius: var(--radius); overflow: hidden; position: relative; }
