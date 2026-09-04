@@ -153,7 +153,12 @@ nav.main-nav a[aria-current="page"] { color: #fff8f5; background: var(--ember); 
   transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
 .reveal.in-view { opacity: 1; transform: translateY(0); }
-.reveal-stagger > * { transition-delay: calc(var(--i, 0) * 90ms); }
+/* Le délai est plafonné (min avec 8) : sur une longue liste comme la Speisekarte
+   (~40 éléments dans un même groupe .reveal-stagger), un délai non plafonné
+   cumulerait plusieurs secondes pour les derniers plats — qui resteraient
+   invisibles (opacity:0) pendant tout ce temps pour un utilisateur qui défile
+   normalement. */
+.reveal-stagger > * { transition-delay: calc(min(var(--i, 0), 8) * 90ms); }
 /* Hero content must never depend on JS/scroll to become visible */
 .always-visible { opacity: 1 !important; transform: none !important; filter: none !important; }
 
@@ -270,11 +275,12 @@ address { font-style: normal; }
 
 .menu-item {
   background: var(--glass); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 16px 26px 16px 16px; display: grid;
+  padding: 16px 26px 16px 16px; display: grid; min-width: 0;
   grid-template-columns: 60px 1fr auto;
   column-gap: 18px; row-gap: 4px; align-items: center;
   transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
+.menu-item p { min-width: 0; }
 .menu-item:hover { border-color: var(--ember); transform: translateX(4px); box-shadow: var(--shadow-sm); }
 .menu-item h4 { font-size: 1.2rem; margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; color: var(--paper); grid-column: 2; }
 .menu-item .tag { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--jewel); font-weight: 700; margin-left: 8px; }
