@@ -103,5 +103,30 @@
     "id": 28945108,
     "photographer": "Nano Erdozain",
     "alt": "A waitress pours wine for a customer in a cozy restaurant setting."
+  },
+  "folienkartoffel": {
+    "id": 840099,
+    "photographer": "Brett Jordan",
+    "alt": "Baked potato served with melted butter and toppings, warm and hearty."
+  },
+  "bier": {
+    "id": 5538223,
+    "photographer": "cottonbro studio",
+    "alt": "Studio shot of a frothy, overflowing pint of golden beer against a dark backdrop."
+  },
+  "spirituosen": {
+    "id": 5858025,
+    "photographer": "Pavel Danilyuk",
+    "alt": "Three empty shot glasses aligned on a wooden table, ideal for bar or party themes."
+  },
+  "cocktail": {
+    "id": 7259040,
+    "photographer": "Aram Diseño",
+    "alt": "Mojito cocktail with mint leaves and dried orange, served on ice against a black background."
+  },
+  "kaffee": {
+    "id": 6747870,
+    "photographer": "Rania",
+    "alt": "Close-up of a cappuccino with latte art on a black saucer with a teaspoon."
   }
 }
