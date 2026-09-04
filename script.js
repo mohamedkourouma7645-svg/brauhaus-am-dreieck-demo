@@ -121,21 +121,26 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  /* ---------- Formulaire de réservation ---------- */
-  const reservationForm = document.getElementById('reservation-form');
-  if (reservationForm) {
-    const validate = attachValidation(reservationForm);
-    const dateInput = document.getElementById('date');
+  /* ---------- Formulaires de réservation (Tisch et Bowling — totalement séparés) ----------
+     Chaque formulaire a son propre id, sa propre page, et son propre libellé de
+     confirmation ("Neue Tisch-Reservierung" / "Neue Bowling-Reservierung") — ce
+     libellé sert de repère clair pour le restaurant, qui doit pouvoir distinguer
+     immédiatement les deux types de réservation sans les confondre. */
+  function attachReservationForm(formId, options) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    const validate = attachValidation(form);
+    const dateInput = form.querySelector('input[type="date"]');
     if (dateInput) dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
 
-    reservationForm.addEventListener('submit', (event) => {
+    form.addEventListener('submit', (event) => {
       event.preventDefault();
       if (!validate()) return;
 
-      const name = document.getElementById('name').value.trim();
-      const date = document.getElementById('date').value;
-      const time = document.getElementById('time').value;
-      const guests = document.getElementById('guests').value;
+      const name = form.querySelector('[name="name"]').value.trim();
+      const date = form.querySelector('[name="date"]').value;
+      const time = form.querySelector('[name="time"]').value;
+      const menge = form.querySelector(`[name="${options.mengeField}"]`).value;
 
       const dateFormatted = date
         ? new Date(date + 'T00:00:00').toLocaleDateString('de-DE', {
@@ -143,14 +148,26 @@ document.addEventListener('DOMContentLoaded', () => {
           })
         : '';
 
-      const confirmation = document.getElementById('confirmation-message');
-      confirmation.textContent =
-        `Vielen Dank, ${name}. Ihre Reservierung für ${guests} am ${dateFormatted} um ${time} Uhr ` +
+      const confirmation = document.getElementById(options.confirmationId);
+      confirmation.innerHTML =
+        `<strong>${options.label}</strong><br>` +
+        `Vielen Dank, ${name}. Ihre Reservierung für ${menge} am ${dateFormatted} um ${time} Uhr ` +
         `wurde erfasst. Demo — es werden aktuell keine echten Daten übertragen.`;
       confirmation.classList.add('show');
-      reservationForm.reset();
+      form.reset();
     });
   }
+
+  attachReservationForm('reservation-form', {
+    mengeField: 'guests',
+    label: 'Neue Tisch-Reservierung ✓',
+    confirmationId: 'confirmation-message',
+  });
+  attachReservationForm('bowling-reservation-form', {
+    mengeField: 'lanes',
+    label: 'Neue Bowling-Reservierung ✓',
+    confirmationId: 'bowling-confirmation-message',
+  });
 
   /* ---------- Formulaire de contact ---------- */
   const contactForm = document.getElementById('contact-form');
