@@ -291,6 +291,11 @@ address { font-style: normal; }
   color: var(--ember); white-space: nowrap; font-variant-numeric: tabular-nums;
 }
 
+.menu-item.no-photo { grid-template-columns: 1fr auto; }
+.menu-item.no-photo h4 { grid-column: 1; }
+.menu-item.no-photo p { grid-column: 1; }
+.menu-item.no-photo .price { grid-column: 2; }
+
 .menu-thumb-wrap {
   grid-column: 1; grid-row: 1 / 3;
   width: 60px; height: 60px; border-radius: 12px; overflow: hidden; position: relative; flex-shrink: 0;
