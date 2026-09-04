@@ -14,7 +14,10 @@
 
 <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-label="Cookie-Hinweis">
   <p>Diese Demo-Website speichert nur technisch Notwendiges (z.&nbsp;B. Ihren Warenkorb) im Session Storage Ihres Browsers &mdash; keine Analyse- oder Marketing-Cookies. <a href="datenschutz.html">Mehr erfahren</a></p>
-  <button type="button" class="btn btn-solid cookie-accept-btn" id="cookie-accept">Verstanden</button>
+  <div class="cookie-banner-actions">
+    <button type="button" class="btn btn-line cookie-decline-btn" id="cookie-decline">Ablehnen</button>
+    <button type="button" class="btn btn-solid cookie-accept-btn" id="cookie-accept">Akzeptieren</button>
+  </div>
 </div>
 
 <button type="button" class="order-badge" id="order-badge" hidden aria-haspopup="dialog">
@@ -91,29 +94,93 @@
 
   <section class="block" style="padding-top:16px;">
     <div class="container-narrow">
+      <div class="card spotlight reveal" style="margin-bottom:20px;">
+        <p style="margin:0;">
+          Diese Website ist eine <strong>Demo</strong> für ein fiktives Restaurant und nicht
+          mit einem tatsächlichen Betrieb verbunden. Die folgende Datenschutzerklärung
+          beschreibt dennoch ernsthaft und vollständig, welche Daten diese konkrete Website
+          tatsächlich verarbeitet — so, wie es eine echte Website eines Restaurants tun würde.
+        </p>
+      </div>
+
       <div class="card spotlight reveal">
+        <h3 style="font-size:1.05rem;">1. Verantwortlicher</h3>
         <p>
-          Diese Website ist eine <strong>Demo</strong> für ein fiktives Restaurant. Sie
-          erhebt, speichert oder verarbeitet keine echten personenbezogenen Daten und ist
-          nicht mit einem tatsächlichen Betrieb verbunden.
+          Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) für diese Website
+          ist der Betreiber von Brauhaus Am Dreieck, Blücherstraße 6, 40477 Düsseldorf.
+          Anfragen zum Datenschutz nehmen wir über das Kontaktformular auf der Seite
+          „Kontakt“ entgegen.
         </p>
+
+        <h3 style="font-size:1.05rem;">2. Hosting</h3>
         <p>
-          Die Formulare auf den Seiten „Kontakt“ und „Reservierung“ übertragen aktuell keine
-          Daten an einen Server — es handelt sich um reine Demo-Funktionen. Eine
-          vollständige Datenschutzerklärung nach Art. 13 DSGVO würde an dieser Stelle für
-          den tatsächlichen Betrieb eines echten Restaurants veröffentlicht.
+          Diese Website wird über GitHub Pages (GitHub, Inc.) gehostet. Beim Aufruf jeder
+          Seite verarbeitet GitHub automatisch technische Zugriffsdaten (z.&nbsp;B.
+          IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter
+          Browser), wie es bei jedem Webserver technisch notwendig ist. Diese Daten dienen
+          ausschließlich dem sicheren und stabilen Betrieb der Website und werden von uns
+          nicht ausgewertet. Näheres regelt die Datenschutzerklärung von GitHub.
         </p>
+
+        <h3 style="font-size:1.05rem;">3. Cookies &amp; lokale Speicherung</h3>
         <p>
-          Der Warenkorb, die Bestellnummer und eine eventuelle Auswahl auf der
-          Speisekarte werden ausschließlich im <em>Session Storage</em> Ihres Browsers
-          gespeichert — sie verlassen niemals Ihr Gerät und werden automatisch gelöscht,
-          sobald Sie den Tab schließen.
+          Diese Website setzt keine Marketing- oder Tracking-Cookies. Sie verwendet
+          lediglich technisch notwendige, lokale Speicherung direkt in Ihrem Browser
+          (<em>Local Storage</em> und <em>Session Storage</em>), unter anderem für:
         </p>
+        <ul class="info-list">
+          <li><span>Ihre Cookie-Auswahl</span><span>Local Storage</span></li>
+          <li><span>Warenkorb &amp; Bestellnummer dieses Besuchs</span><span>Session Storage</span></li>
+        </ul>
         <p>
-          Der Cookie-Hinweis, den Sie beim ersten Besuch sehen, speichert lediglich Ihre
-          Zustimmung selbst (im <em>Local Storage</em> Ihres Browsers, damit der Hinweis
-          nicht bei jedem Seitenaufruf erneut erscheint). Diese Website setzt keine
-          Analyse-, Marketing- oder Tracking-Cookies ein.
+          Diese Daten verlassen zu keinem Zeitpunkt Ihr Gerät und werden von uns nicht
+          eingesehen. Eine Einwilligung ist dafür nach § 25 Abs. 2 TTDSG rechtlich nicht
+          erforderlich; wir zeigen den Hinweis dennoch zur Transparenz an. Ihre Auswahl im
+          Cookie-Banner selbst wird ebenfalls lokal in Ihrem Browser gespeichert, damit der
+          Hinweis nicht bei jedem Besuch erneut erscheint.
+        </p>
+
+        <h3 style="font-size:1.05rem;">4. Google Fonts</h3>
+        <p>
+          Diese Website lädt die Schriftarten „Instrument Serif“ und „Sora“ direkt von den
+          Servern von Google (Google Ireland Limited). Dabei wird Ihre IP-Adresse an Google
+          übertragen, damit die Schrift ausgeliefert werden kann. Weitere Informationen
+          finden Sie in der Datenschutzerklärung von Google.
+        </p>
+
+        <h3 style="font-size:1.05rem;">5. Kontakt- &amp; Reservierungsformulare</h3>
+        <p>
+          Die Formulare auf den Seiten „Kontakt“, „Tisch reservieren“ und „Bowling
+          reservieren“ übertragen aktuell keine Daten an einen Server — es handelt sich um
+          reine Demo-Funktionen. Bei einer echten Website würden die eingegebenen Daten
+          (z.&nbsp;B. Name, E-Mail-Adresse, Datum, Uhrzeit, Personenanzahl) ausschließlich
+          zur Bearbeitung Ihrer Anfrage verarbeitet und nicht an Dritte weitergegeben.
+        </p>
+
+        <h3 style="font-size:1.05rem;">6. Bestellsystem</h3>
+        <p>
+          Ein etwaiges Online-Bestellsystem dieser Website ist derzeit nicht aktiv
+          nutzbar. Sollte es künftig aktiviert werden, würden bei einer Bestellung die
+          bestellten Gerichte und die zugehörige Bestellnummer ausschließlich zur
+          Bearbeitung der Bestellung verarbeitet — eine Weitergabe an Dritte oder eine
+          Nutzung zu Werbezwecken würde nicht stattfinden.
+        </p>
+
+        <h3 style="font-size:1.05rem;">7. Ihre Rechte</h3>
+        <p>
+          Sie haben jederzeit das Recht auf Auskunft über die zu Ihrer Person
+          gespeicherten Daten (Art. 15 DSGVO), auf Berichtigung (Art. 16 DSGVO), auf
+          Löschung (Art. 17 DSGVO), auf Einschränkung der Verarbeitung (Art. 18 DSGVO), auf
+          Datenübertragbarkeit (Art. 20 DSGVO) sowie auf Widerspruch gegen die Verarbeitung
+          (Art. 21 DSGVO). Zudem steht Ihnen ein Beschwerderecht bei der zuständigen
+          Datenschutzaufsichtsbehörde zu.
+        </p>
+
+        <h3 style="font-size:1.05rem;">8. Änderungen dieser Erklärung</h3>
+        <p style="margin:0;">
+          Wir passen diese Datenschutzerklärung an, sobald sich die auf dieser Website
+          eingesetzten Funktionen ändern. Es gilt die jeweils aktuelle, auf dieser Seite
+          veröffentlichte Fassung.
         </p>
       </div>
     </div>

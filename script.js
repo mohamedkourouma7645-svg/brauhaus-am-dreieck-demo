@@ -4,26 +4,30 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Cookie-Hinweis ---------- */
   const cookieBanner = document.getElementById('cookie-banner');
   if (cookieBanner) {
-    let bereitsAkzeptiert = false;
+    let consent = null;
     try {
-      bereitsAkzeptiert = localStorage.getItem('brauhaus_cookie_consent') === 'true';
+      consent = localStorage.getItem('brauhaus_cookie_consent');
     } catch (e) {
-      bereitsAkzeptiert = false;
+      consent = null;
     }
-    if (!bereitsAkzeptiert) {
+    if (!consent) {
       cookieBanner.removeAttribute('hidden');
       requestAnimationFrame(() => cookieBanner.classList.add('show'));
     }
-    document.getElementById('cookie-accept')?.addEventListener('click', () => {
+
+    const setCookieConsent = (value) => {
       try {
-        localStorage.setItem('brauhaus_cookie_consent', 'true');
+        localStorage.setItem('brauhaus_cookie_consent', value);
       } catch (e) {
         /* localStorage nicht verfügbar (z. B. privater Modus) — Banner schließt sich trotzdem,
            erscheint beim nächsten Laden dieser Seitenansicht aber erneut. */
       }
       cookieBanner.classList.remove('show');
       window.setTimeout(() => cookieBanner.setAttribute('hidden', ''), 400);
-    });
+    };
+
+    document.getElementById('cookie-accept')?.addEventListener('click', () => setCookieConsent('accepted'));
+    document.getElementById('cookie-decline')?.addEventListener('click', () => setCookieConsent('declined'));
   }
 
   /* ---------- Halo qui suit le curseur sur les cartes ---------- */

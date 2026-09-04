@@ -17,7 +17,10 @@
 
 <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-label="Cookie-Hinweis">
   <p>Diese Demo-Website speichert nur technisch Notwendiges (z.&nbsp;B. Ihren Warenkorb) im Session Storage Ihres Browsers &mdash; keine Analyse- oder Marketing-Cookies. <a href="datenschutz.html">Mehr erfahren</a></p>
-  <button type="button" class="btn btn-solid cookie-accept-btn" id="cookie-accept">Verstanden</button>
+  <div class="cookie-banner-actions">
+    <button type="button" class="btn btn-line cookie-decline-btn" id="cookie-decline">Ablehnen</button>
+    <button type="button" class="btn btn-solid cookie-accept-btn" id="cookie-accept">Akzeptieren</button>
+  </div>
 </div>
 
 <button type="button" class="order-badge" id="order-badge" hidden aria-haspopup="dialog">

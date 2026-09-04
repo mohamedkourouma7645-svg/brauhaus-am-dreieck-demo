@@ -515,7 +515,10 @@ footer.site-footer { background: var(--ink-2); color: var(--paper-dim); padding:
 .cookie-banner[hidden] { display: none; }
 .cookie-banner p { margin: 0; font-size: 0.86rem; color: var(--ink); max-width: 640px; }
 .cookie-banner a { color: var(--ember-bright); font-weight: 700; text-decoration: underline; }
-.cookie-accept-btn { padding: 10px 22px; min-height: 44px; flex-shrink: 0; }
+.cookie-banner-actions { display: flex; gap: 10px; flex-shrink: 0; }
+.cookie-accept-btn, .cookie-decline-btn { padding: 10px 22px; min-height: 44px; flex-shrink: 0; }
+.cookie-banner .btn-line { color: var(--ink); border-color: rgba(251, 250, 247, 0.35); }
+.cookie-banner .btn-line:hover { border-color: var(--ember-bright); color: var(--ember-bright); }
 
 .signature-preview-grid { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: auto auto; gap: 20px; }
 .signature-preview-figure { grid-row: span 2; }
